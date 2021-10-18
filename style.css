@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+:root {
+  --color: #3dc8ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://i.ibb.co/64zgMhX/oceanmod.jpg") no-repeat;
+  background-position: center center;
+  background-size: cover;
+  overflow: hidden;
+  font-family: "Montserrat", sans-serif;
+}
+
+header {
+  position: fixed;
+  top: 10px;
+  left: 0;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .navbar {
+  transition: 0.3s linear;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+}
+
+header .logo > img {
+  height: 45px;
+  margin-right: 0 10px;
+  margin-left: 20px;
+}
+
+header .logo > h2 {
+  color: white;
+  position: relative;
+  top: 7rem;
+  width: 100%;
+}
+
+header .navbar ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  width: 500px;
+  justify-content: space-around;
+  color: white;
+}
+
+header .navbar ul li {
+  font-size: 1.2rem;
+}
+
+header .navbar ul li:hover {
+  color: var(--color);
+  cursor: pointer;
+}
+
+input {
+  display: none;
+}
+
+label {
+  z-index: 2;
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  cursor: pointer;
+}
+
+label span {
+  display: block;
+  height: 3px;
+  width: 30px;
+  background: var(--color);
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+label span:nth-child(1) {
+  margin-left: 20px;
+}
+
+label span:nth-child(2) {
+  width: 50px;
+}
+
+#toggle:checked ~ label > span:nth-child(1) {
+  background: #fff;
+  transform: rotateZ(45deg);
+  width: 30px;
+  margin-top: 10px;
+}
+
+#toggle:checked ~ label > span:nth-child(2) {
+  background: #fff;
+  transform: rotateZ(-45deg);
+  width: 30px;
+  margin-top: -8px;
+  margin-left: 19px;
+}
+
+#toggle:checked ~ header .navbar {
+  left: 0;
+}
+
+@media (max-width: 978px) {
+  label {
+    display: block;
+  }
+  span {
+    display: none;
+  }
+  header .navbar {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    background: var(--color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  header .navbar ul {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column wrap;
+  }
+  header .navbar ul li {
+    margin: 10px 0;
+    font-size: 2rem;
+    color: #fff;
+  }
+  header .navbar ul li:hover {
+    background: #000;
+    border-radius: 50px;
+    padding: 0 50px;
+    transition: 0.3s ease;
+    border: 2px solid black;
+  }
+}
